@@ -112,6 +112,7 @@ function runSearch(e) {
     
     const employeeNames = document.querySelectorAll(".name");
     let searchTerm = e.target.value.toLowerCase();
+    // console.log(searchTerm);
     employeeNames.forEach(name => {
         if (name.textContent.toLowerCase().includes(searchTerm)) {
             name.parentElement.parentElement.removeAttribute("style");
