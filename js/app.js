@@ -53,6 +53,7 @@ function displayEmployees(employeeData) {
 
 function displayModal(index) {
     // use object destructuring make our template literal cleaner
+    console.log(index);
     let { name, dob, phone, email, location: { city, street, state, postcode
     }, picture } = employees[index];
 
@@ -77,8 +78,7 @@ function displayModal(index) {
     modalContainer.innerHTML = modalHTML;
     modalIndex = index;
 
-}
-
+};
 
 //Event Listeners
 //gridContainers click event
@@ -106,41 +106,47 @@ modalClose.addEventListener('click', () => {
 // Employees can be filtered by name
 
 
-searchBox.addEventListener('keyup', (e) => {
-  
-   const employeeNames = document.querySelectorAll(".name");
-   let searchTerm = e.target.value.toLowerCase();
+searchBox.addEventListener('input', runSearch);
+
+function runSearch(e) {
+    
+    const employeeNames = document.querySelectorAll(".name");
+    let searchTerm = e.target.value.toLowerCase();
     employeeNames.forEach(name => {
         if (name.textContent.toLowerCase().includes(searchTerm)) {
-          name.parentElement.parentElement.style.display = " ";
+            name.parentElement.parentElement.removeAttribute("style");
         }
         else {
-           name.parentElement.parentElement.style.display = "none";  
+            name.parentElement.parentElement.style.display = "none";
         }
-       
-    });
 
-});
+    })
+
+}
+
 
 //switch back and forth between employees when the detail modal window is open.
 
 next.addEventListener('click', () => {
-
+    if (typeof modalIndex === 'string') {
+        modalIndex = parseInt(modalIndex);
+    }
     if (modalIndex === 11) {
-            displayModal(0);
-        } else {
+        displayModal(0);
+    } else {
         modalIndex++;
         displayModal(modalIndex);
-        }
-    });
-    
-previous.addEventListener('click', () => {
+    }
+});
 
-        if (modalIndex === 0) {
-                displayModal(11);
-            } else {
-             modalIndex--;
-            displayModal(modalIndex);
-            }
-        });
-        
+previous.addEventListener('click', () => {
+    if (typeof modalIndex === 'string') {
+        modalIndex = parseInt(modalIndex);
+    }
+    if (modalIndex === 0) {
+        displayModal(11);
+    } else {
+        modalIndex--;
+        displayModal(modalIndex);
+    }
+});
