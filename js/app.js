@@ -7,7 +7,9 @@ const overlay = document.querySelector(".overlay");
 const modalContainer = document.querySelector(".modal-content");
 const modalClose = document.querySelector(".modal-close")
 const searchBox = document.querySelector(".search");
-
+const previous = document.querySelector(".modal-previous");
+const next = document.querySelector(".modal-next");
+let modalIndex = 0;
 
 
 // fetch data from API
@@ -73,6 +75,8 @@ function displayModal(index) {
 
     overlay.classList.remove("hidden");
     modalContainer.innerHTML = modalHTML;
+    modalIndex = index;
+
 }
 
 
@@ -118,37 +122,25 @@ searchBox.addEventListener('keyup', (e) => {
 
 });
 
-
-
-// cards.forEach((employeeData, index) => { 
-        
-    //     if(employeeData.contains)
-    
-    // }
-    // get employees data
-    //employees.forEach((employeeData, index) =>
-   // if employeeData contains string , name whatever:
-   // select card with same index, switch on or off
-
-
-
-
 //switch back and forth between employees when the detail modal window is open.
 
+next.addEventListener('click', () => {
 
+    if (modalIndex === 11) {
+            displayModal(0);
+        } else {
+        modalIndex++;
+        displayModal(modalIndex);
+        }
+    });
+    
+previous.addEventListener('click', () => {
 
-// let employeeNames = document.querySelectorAll(".card h2");
-// searchBox.addEventListener('keyUp', (e) => {
-  
-//     let searchTerm = e.target.value.toLowerCase();
-//     employeeNames.forEach(name => {
-//         if (name.textContent.toLowerCase().includes(searchTerm)) {
-//           name.parentElement.parentElement.style.display = "block";
-//         }
-//         else {
-//            name.parentElement.parentElement.style.display = "none";  
-//         }
-       
-//     });
-
-// });
+        if (modalIndex === 0) {
+                displayModal(11);
+            } else {
+             modalIndex--;
+            displayModal(modalIndex);
+            }
+        });
+        

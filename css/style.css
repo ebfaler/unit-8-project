@@ -77,6 +77,22 @@ img {
     font-size: 15px;
 }
 
+
+.modal-previous {
+
+position: absolute;
+left: 1em;
+margin-top: 3em;
+
+}
+
+.modal-next {
+
+    position: absolute;
+    right: 1em;
+    margin-top: 3em;
+}
+    
 .card {
 
   border: 1px solid darkgrey;
