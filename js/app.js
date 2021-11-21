@@ -101,39 +101,34 @@ modalClose.addEventListener('click', () => {
 
 // Employees can be filtered by name
 
-searchBox.addEventListener('keyUp', (e) => {
 
-    let searchTerm = e.target.value.toLowerCase();
-    let cards = document.querySelector(".card");
-    let employeeData = cards.querySelector(".name");
-    
-    cards.forEach((employeeData, index) => { 
+searchBox.addEventListener('keyup', (e) => {
+  
+   const employeeNames = document.querySelectorAll(".name");
+   let searchTerm = e.target.value.toLowerCase();
+    employeeNames.forEach(name => {
+        if (name.textContent.toLowerCase().includes(searchTerm)) {
+          name.parentElement.parentElement.style.display = " ";
+        }
+        else {
+           name.parentElement.parentElement.style.display = "none";  
+        }
+       
+    });
+
+});
+
+
+
+// cards.forEach((employeeData, index) => { 
         
-        if(employeeData.contains)
+    //     if(employeeData.contains)
     
-
-
-    }
+    // }
     // get employees data
     //employees.forEach((employeeData, index) =>
    // if employeeData contains string , name whatever:
    // select card with same index, switch on or off
-
-
-    // cards.forEach(card => {
-    //     if (card.innerHTML.toLowerCase().includes(searchTerm)) {
-    //        card.style.display = "flex";
-    //     }
-    //     else {
-    //         card.style.display = "none";  
-    //     }
-    // }
-  
-    )
-
-}
-)
-
 
 
 
@@ -142,3 +137,18 @@ searchBox.addEventListener('keyUp', (e) => {
 
 
 
+// let employeeNames = document.querySelectorAll(".card h2");
+// searchBox.addEventListener('keyUp', (e) => {
+  
+//     let searchTerm = e.target.value.toLowerCase();
+//     employeeNames.forEach(name => {
+//         if (name.textContent.toLowerCase().includes(searchTerm)) {
+//           name.parentElement.parentElement.style.display = "block";
+//         }
+//         else {
+//            name.parentElement.parentElement.style.display = "none";  
+//         }
+       
+//     });
+
+// });
