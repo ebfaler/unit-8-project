@@ -1,4 +1,4 @@
-Project 8 Treehouse Tech degree 
+Project 8 Treehouse Tech degree:  
 Use an API to Create an Employee Directory
 
 
