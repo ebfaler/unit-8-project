@@ -23,11 +23,11 @@ fetch(urlAPI)
 
 function displayEmployees(employeeData) {
     employees = employeeData; //setting employees variable equal to employeeData so that it can be accessed outside of this function
-
+ 
     // store the employee HTML as we create it
     let employeeHTML = '';
 
-    // loop through each employee and create HTML markup
+    // loop through each employee and create HTML markup and display index
     employees.forEach((employee, index) => {
         let name = employee.name;
         let email = employee.email;
@@ -107,6 +107,8 @@ modalClose.addEventListener('click', () => {
 
 
 searchBox.addEventListener('input', runSearch);
+// let searchResults =[];
+// console.log(searchResults);
 
 function runSearch(e) {
     
@@ -120,7 +122,7 @@ function runSearch(e) {
         else {
             name.parentElement.parentElement.style.display = "none";
         }
-
+        // searchResults = searchTerm;
     })
 
 }
@@ -130,7 +132,7 @@ function runSearch(e) {
 
 next.addEventListener('click', () => {
     if (typeof modalIndex === 'string') {
-        modalIndex = parseInt(modalIndex);
+        modalIndex = parseInt(modalIndex, 10);
     }
     if (modalIndex === 11) {
         displayModal(0);
@@ -142,7 +144,7 @@ next.addEventListener('click', () => {
 
 previous.addEventListener('click', () => {
     if (typeof modalIndex === 'string') {
-        modalIndex = parseInt(modalIndex);
+        modalIndex = parseInt(modalIndex, 10);
     }
     if (modalIndex === 0) {
         displayModal(11);

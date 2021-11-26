@@ -126,31 +126,43 @@ img {
     }
 
 
-/* need to add media queries */
-@media (min-width: 1024px) {
+/* Media Queries */
 
-.modal {
-    width: 375px;
-}      
+/* TABLET */
+
+@media (min-width: 768px) {
+
+    .modal {
+        width: 375px;
+    }      
+    
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        }
+    
+    .card {
+     width: 95%;
+     height: 85%;
+     margin-top: 20px;
+     margin-left: 20px;
+     margin-right: 20px;
+     padding: 15px;
+     
+    }
+    
+    .search {
+     width: 30%;
+    }
+    
+    }
+
+/* DESKTOP */
+
+@media (min-width: 1024px) {
 
 .grid-container {
     grid-template-columns: repeat(3, 1fr);
     }
-
-.card {
- width: 95%;
- height: 85%;
- margin-top: 20px;
- margin-left: 20px;
- margin-right: 20px;
- padding: 15px;
- 
-}
-
-.search {
- width: 30%;
-}
-
 }
 
 
