@@ -23,7 +23,7 @@ fetch(urlAPI)
 
 function displayEmployees(employeeData) {
     employees = employeeData; //setting employees variable equal to employeeData so that it can be accessed outside of this function
- 
+
     // store the employee HTML as we create it
     let employeeHTML = '';
 
@@ -53,11 +53,11 @@ function displayEmployees(employeeData) {
 
 function displayModal(index) {
     // use object destructuring make our template literal cleaner
-    console.log(index);
     let { name, dob, phone, email, location: { city, street, state, postcode
     }, picture } = employees[index];
 
     let date = new Date(dob.date);
+    console.log(date);
 
     const modalHTML = `
     <img class="avatar" src="${picture.large}" />
@@ -69,7 +69,7 @@ function displayModal(index) {
     <p>${phone}</p>
     <p class="address">${street.number}, ${street.name}, ${state}, ${postcode}</p>
     <p>Birthday:
-    ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
+    ${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}</p>
     </div>
     `;
 
@@ -111,7 +111,7 @@ searchBox.addEventListener('input', runSearch);
 // console.log(searchResults);
 
 function runSearch(e) {
-    
+
     const employeeNames = document.querySelectorAll(".name");
     let searchTerm = e.target.value.toLowerCase();
     // console.log(searchTerm);
