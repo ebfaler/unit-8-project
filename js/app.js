@@ -23,7 +23,7 @@ fetch(urlAPI)
 
 function displayEmployees(employeeData) {
     employees = employeeData; //setting employees variable equal to employeeData so that it can be accessed outside of this function
- 
+
     // store the employee HTML as we create it
     let employeeHTML = '';
 
@@ -111,7 +111,7 @@ searchBox.addEventListener('input', runSearch);
 // console.log(searchResults);
 
 function runSearch(e) {
-    
+
     const employeeNames = document.querySelectorAll(".name");
     let searchTerm = e.target.value.toLowerCase();
     // console.log(searchTerm);
